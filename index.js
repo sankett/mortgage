@@ -23,7 +23,7 @@ app.get('/webhook1/', function (req, res) {
 app.post('/webhook/', function (req, res) {
 	console.log("request");
 	var data = req.body;
-	response = "This is a sample response from your webhook! " //Default response from the webhook to show it's working
+	response = "This is a sample response from your webhook! " + data //Default response from the webhook to show it's working
 
   res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
   res.send(JSON.stringify({ "speech": response, "displayText": response 
