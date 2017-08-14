@@ -25,9 +25,18 @@ app.post('/webhook/', function (req, res) {
 	var result = '';
 	if(req.body && req.body.result){
 	   result = req.body.result;
+	   var morttype = result.parameters["mort-type"];
+	   var buyer = result.parameters["mort-buyer"];
+	   var apply = result.parameters["mort-apply"];
 	   var deposit = result.parameters["mort-depo"];
 	   var earn = result.parameters["mort-earn"];
-	   result =  "deposit:" + deposit + " | Earn:" + earn
+	   var cc = result.parameters["mort-CC"];
+	   var repay = result.parameters["mort-repay"];
+	   var rate = result.parameters["mort-rate"];
+	   var name = result.parameters["mort-name"];
+	   result =  "Type:" + morttype + "| Buyer:" + buyer + "| deposit: $" + deposit + " | Earn: $" + earn;
+	   result += " | Credit Card balances: " + cc + " | Monthly repayments: $" + repay;
+	   result += " |Rate: " + rate + " | Name: $" + name ;
 	}
 	
 	response = "This is a sample response from your webhook! " + result //Default response from the webhook to show it's working
