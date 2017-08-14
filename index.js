@@ -22,8 +22,15 @@ app.get('/webhook1/', function (req, res) {
 
 app.post('/webhook/', function (req, res) {
 	console.log("request");
-	var data = JSON.stringify(req.body.result.parameters["geo-city"]);
-	response = "This is a sample response from your webhook! " + data //Default response from the webhook to show it's working
+	var result = '';
+	if(req.body && req.body.result){
+	   result = req.body.result;
+	   var deposit = result["mort-depo"];
+	   var earn = result["mort-earn"];
+	   result =  "deposit:" + deposit + " | Earn:" + earn
+	}
+	
+	response = "This is a sample response from your webhook! " + result //Default response from the webhook to show it's working
 
   res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
   res.send(JSON.stringify({ "speech": response, "displayText": response 
