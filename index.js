@@ -1,8 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const request = require('request');
-const app = express();
-const uuid = require('uuid');
+var express = require('express');
+var bodyParser = require('body-parser');
+var request = require('request');
+var app = express();
+var uuid = require('uuid');
 
 app.set('port', (process.env.PORT || 5000))
 
