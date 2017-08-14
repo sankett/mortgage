@@ -34,9 +34,9 @@ app.post('/webhook/', function (req, res) {
 	   var repay = result.parameters["mort-repay"];
 	   var rate = result.parameters["mort-rate"];
 	   var name = result.parameters["mort-name"];
-	   result =  "Type:" + morttype + "| Buyer:" + buyer + "| deposit: $" + deposit + " | Earn: $" + earn;
-	   result += " | Credit Card balances: " + cc + " | Monthly repayments: $" + repay;
-	   result += " |Rate: " + rate + " | Name: $" + name ;
+	   result =  "Type:" + morttype + " | Buyer:" + buyer + "| deposit: $" + deposit + " | Earn: $" + earn;
+	   result += " | Credit Card balances: $" + cc + " | Monthly repayments: $" + repay;
+	   result += " |Rate: " + rate + " | Name:" + name ;
 	}
 	
 	response = "This is a sample response from your webhook! " + result //Default response from the webhook to show it's working
