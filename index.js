@@ -25,8 +25,8 @@ app.post('/webhook/', function (req, res) {
 	var result = '';
 	if(req.body && req.body.result){
 	   result = req.body.result;
-	   var deposit = result["mort-depo"];
-	   var earn = result["mort-earn"];
+	   var deposit = result.parameters["mort-depo"];
+	   var earn = result.parameters["mort-earn"];
 	   result =  "deposit:" + deposit + " | Earn:" + earn
 	}
 	
