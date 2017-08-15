@@ -36,14 +36,14 @@ app.post('/webhook/', function (req, res) {
 	   var rate = result.parameters["mort-rate"];
 	   var name = result.parameters["mort-name"];
 	   var num = uuid.v4(); 
-	   result =  "|----Thank You.Please note details-----|" ;
-	   result += "Reference no:" + num;
+	   result =  "|----Reference No-----|" ;
+	   result +=  num;
 	   result += "                    ";
 	   result += "======Details=====";
 	   result += " Type:" + morttype + " | Buyer:" + buyer + "| deposit: $" + deposit + " | Earn: $" + earn;
 	   result += " Credit Card balances: $" + cc + " | Monthly repayments: $" + repay;
 	   result += " Rate: " + rate + " | Name:" + name ;
-	
+	   result += "*****THANK YOU*******";
 	   response = result
 	}
 	else{
