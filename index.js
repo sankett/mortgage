@@ -38,6 +38,7 @@ app.post('/webhook/', function (req, res) {
 	   var num = uuid.v4(); 
 	   result =  "|----Thank You.Please note details-----|" ;
 	   result += "Reference no:" + num;
+	   result += "                    ";
 	   result += "======Details=====";
 	   result += " Type:" + morttype + " | Buyer:" + buyer + "| deposit: $" + deposit + " | Earn: $" + earn;
 	   result += " Credit Card balances: $" + cc + " | Monthly repayments: $" + repay;
