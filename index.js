@@ -37,7 +37,7 @@ app.post('/webhook/', function (req, res) {
 	   var name = result.parameters["mort-name"];
 	   var num = uuid.v4(); 
 	   result =  "Reference No:" ;
-	   result +=  num..substr(0, 7)
+	   result +=  num.substr(0, 7)
 	   result += "                    ";
 	   result += "======Details=====";
 	   result += " Type:" + morttype + " | Buyer:" + buyer + "| deposit: $" + deposit + " | Earn: $" + earn;
