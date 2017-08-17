@@ -92,7 +92,14 @@ app.get('/webhook/', function (req, res) {
 
   res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
   res.send(JSON.stringify({ "speech": response, "displayText": response 
-  //"speech" is the spoken version of the response, "displayText" is the visual version
+  ,"messages":[{
+"type": 0,
+"speech": "my first response"
+},
+{
+"type": 0,
+"speech": "my second response"
+}]
   }));
 })
 
