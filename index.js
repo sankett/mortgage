@@ -27,7 +27,23 @@ app.post('/webhook/', function (req, res) {
 	if(req.body && req.body.result){
 	   result = req.body.result;
 	  // if(result.actionIncomplete == "false"){
+	   var mortstart = result.parameters["mort-start"];
 	   var morttype = result.parameters["mort-type"];
+		if(mortstart != '' && morttype == ''){
+			 res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
+			  res.send(JSON.stringify({ "speech": response, "displayText": response
+			,"messages":[{
+			"type": 0,
+			"speech": "my first response"
+			},
+			{
+			"type": 0,
+			"speech": "my second response"
+			}]
+
+			  }));
+		}
+		else{
 	   var buyer = result.parameters["mort-buyer"];
 	   var apply = result.parameters["mort-apply"];
 	   var deposit = result.parameters["mort-depo"];
@@ -46,17 +62,22 @@ app.post('/webhook/', function (req, res) {
 	   result += " Rate: " + rate + " | Name:" + name ;
 	   result += "-----THANK YOU----";
 	   response = result
-	   //}
+	   res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
+	  res.send(JSON.stringify({ "speech": response, "displayText": response 
+
+	  }));
+	   }
 	}
 	else{
 		response = "This is a sample response from your webhook! "
+		 res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
+		  res.send(JSON.stringify({ "speech": response, "displayText": response 
+
+		  }));
 	}
 	 //Default response from the webhook to show it's working
 
-  res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
-  res.send(JSON.stringify({ "speech": response, "displayText": response 
-  //"speech" is the spoken version of the response, "displayText" is the visual version
-  }));
+ 
 	res.sendStatus(200);
 })
 
