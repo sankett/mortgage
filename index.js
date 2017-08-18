@@ -26,7 +26,7 @@ app.post('/webhook/', function (req, res) {
 	var result = '';
 	if(req.body && req.body.result){
 	   result = req.body.result;
-	   if(result.actionIncomplete == "false"){
+	  // if(result.actionIncomplete == "false"){
 	   var morttype = result.parameters["mort-type"];
 	   var buyer = result.parameters["mort-buyer"];
 	   var apply = result.parameters["mort-apply"];
@@ -46,7 +46,7 @@ app.post('/webhook/', function (req, res) {
 	   result += " Rate: " + rate + " | Name:" + name ;
 	   result += "-----THANK YOU----";
 	   response = result
-	   }
+	   //}
 	}
 	else{
 		response = "This is a sample response from your webhook! "
