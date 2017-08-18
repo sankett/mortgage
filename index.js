@@ -24,7 +24,7 @@ app.get('/webhook1/', function (req, res) {
 app.post('/webhook/', function (req, res) {
 	console.log("request");
 	var result = '';
-	if(req.body && req.body.result){
+	if(req.body && req.body.result && req.body.result.actionIncomplete == "true"){
 	   result = req.body.result;
 	   var morttype = result.parameters["mort-type"];
 	   var buyer = result.parameters["mort-buyer"];
